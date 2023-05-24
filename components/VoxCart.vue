@@ -13,12 +13,12 @@
     </div>
     <div class="cart-items">
       <!-- {{ cart }} -->
-      <div v-for="item in cart" :key="'cart'+item.id" class="row">
+      <div v-for="item in cart" :key="'cart'+item.id" class="row item">
         <div class="img-container">
-          a
+          <img :src="item.image" :alt="item.title" class="product-image" loading="lazy">
         </div>
         <div class="col item-details">
-          <div class="item-title">
+          <div class="item-title ellipsis">
             {{ item.title }}
           </div>
           <div class="row price sub-details mt-auto">
@@ -75,6 +75,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+
+  width: 100%;
+  height: 70px;
+  object-fit: contain; /* Adjust the value as per your requirement */
+}
+
+.item {
+  padding-bottom: 14px;
+}
 .cart-component {
   padding: 32px 32px 24px;
 }

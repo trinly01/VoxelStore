@@ -58,5 +58,10 @@ export default {
   line-height: 41px;
   color: #000000;
   text-align: center;
+  z-index: 1;
+}
+
+.sub-text {
+  z-index: 1;
 }
 </style>

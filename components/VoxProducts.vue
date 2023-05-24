@@ -18,7 +18,7 @@
             <div class="product-price">
               {{ $n(item.price, 'currency') }}
             </div>
-            <button class="add-to-cart-button" @click="addToCart(item)">
+            <button class="add-to-cart-button" @click="addItemToCart(item)">
               <svg
                 style="margin-right: 11px;"
                 width="14"
@@ -37,6 +37,9 @@
         <!-- Add more product items as needed -->
       </div>
     </div>
+    <v-snackbar v-model="showSnackbar" :timeout="2000" color="purple" top>
+      <b>{{ snackbarMessage }}</b> added to cart
+    </v-snackbar>
   </v-col>
 </template>
 
@@ -49,6 +52,12 @@ export default {
       default: () => []
     }
   },
+  data () {
+    return {
+      showSnackbar: false,
+      snackbarMessage: ''
+    }
+  },
   computed: {
     filteredProducts () {
       const tab = this.$store.state.filter.tab
@@ -59,7 +68,15 @@ export default {
     }
   },
   methods: {
-    ...mapActions('cart', ['addToCart'])
+    ...mapActions('cart', ['addToCart']),
+    addItemToCart (item) {
+      this.addToCart(item)
+      this.showSnackbar = false
+      this.snackbarMessage = item.title
+      setTimeout(() => {
+        this.showSnackbar = true
+      }, 300)
+    }
   }
 }
 </script>
