@@ -39,7 +39,7 @@
         {{ $n(cartTotal, 'currency') }}
       </div>
     </div>
-    <button class="checkout">
+    <button v-show="cart.length" class="checkout">
       Continue to Checkout
     </button>
   </div>
