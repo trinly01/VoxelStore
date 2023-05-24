@@ -2,6 +2,12 @@ export const state = () => ({
   cart: []
 })
 
+export const getters = {
+  totalItems: (state) => {
+    return state.cart.length
+  }
+}
+
 export const mutations = {
   addToCart (state, item) {
     state.cart.push(item)

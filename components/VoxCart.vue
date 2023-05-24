@@ -2,7 +2,7 @@
   <div class="cart-component">
     <div class="cart-header row justify-center align-center">
       <div class="title">
-        Your Cart (2)
+        Your Cart ({{ totalItems }})
       </div>
       <span class="flex-grow-1" />
       <div class="button-container">
@@ -39,9 +39,10 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   computed: {
+    ...mapGetters('cart', ['totalItems']),
     cart () {
       const result = []
       const map = new Map()
