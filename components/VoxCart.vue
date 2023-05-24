@@ -33,8 +33,15 @@
       </div>
     </div>
     <div v-show="cart.length" class="cart-checkout">
-      checkout
+      <div class="row mt-auto total">
+        Total
+        <v-spacer />
+        {{ $n(cartTotal, 'currency') }}
+      </div>
     </div>
+    <button class="checkout">
+      Continue to Checkout
+    </button>
   </div>
 </template>
 
@@ -52,9 +59,10 @@ export default {
           // If the item is already in the map, increment the quantity
           const existingItem = map.get(item.id)
           existingItem.qty += 1
+          existingItem.subTotal = existingItem.qty * item.price
         } else {
           // If the item is not in the map, add it with quantity 1
-          const newItem = { ...item, qty: 1 }
+          const newItem = { ...item, qty: 1, subTotal: item.price }
           map.set(item.id, newItem)
           result.push(newItem)
         }
@@ -63,6 +71,11 @@ export default {
       return result
 
       // return this.$store.state.cart.cart
+    },
+    cartTotal () {
+      return this.cart
+        .map(item => item.price * item.qty)
+        .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
     }
   },
   mounted () {
@@ -75,6 +88,33 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.checkout {
+  margin-top: 34px;
+  width: 100%;
+  height: 59px;
+  background: linear-gradient(0deg, #462DDF, #462DDF), #1A1A1A;
+  border-radius: 8px;
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  leading-trim: both;
+  text-edge: cap;
+  color: #FFFFFF;
+}
+
+.total {
+  padding-top: 24px;
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 27px;
+
+  color: #1A1A1A;
+}
 
 .product-image {
   display: flex;
