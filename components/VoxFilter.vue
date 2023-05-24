@@ -4,7 +4,7 @@
       <v-tabs
         :model-value="$store.state.filter.tab"
         class="no-gutter max-width-1400"
-        color="deep-purple accent-4"
+        color="#1A1A1A"
         align-tabs="center"
         height="64px"
       >
@@ -40,5 +40,13 @@ export default {
 .center-tabs {
   justify-content: center;
   align-items: center;
+}
+
+.capitalize-first::first-letter {
+  text-transform: uppercase;
+}
+
+.v-tab {
+  text-transform: capitalize !important;
 }
 </style>
