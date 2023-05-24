@@ -6,7 +6,7 @@
       </div>
       <span class="flex-grow-1" />
       <div class="button-container">
-        <v-btn color="black" icon @click="$emit('close')">
+        <v-btn color="black" icon class="depressed" @click="$emit('close')">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </div>
@@ -39,9 +39,9 @@
         {{ $n(cartTotal, 'currency') }}
       </div>
     </div>
-    <button v-show="cart.length" class="checkout">
+    <v-btn v-show="cart.length" class="checkout" depressed height="59">
       Continue to Checkout
-    </button>
+    </v-btn>
   </div>
 </template>
 

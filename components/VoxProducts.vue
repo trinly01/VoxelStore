@@ -18,7 +18,7 @@
             <div class="product-price">
               {{ $n(item.price, 'currency') }}
             </div>
-            <button class="add-to-cart-button" @click="addItemToCart(item)">
+            <v-btn class="add-to-cart-button" depressed @click="addItemToCart(item)">
               <svg
                 style="margin-right: 11px;"
                 width="14"
@@ -31,7 +31,7 @@
               </svg>
 
               Add to Cart
-            </button>
+            </v-btn>
           </div>
         </div>
         <!-- Add more product items as needed -->

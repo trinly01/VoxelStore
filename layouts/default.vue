@@ -17,6 +17,7 @@
             </v-toolbar-title>
             <v-spacer />
             <v-btn
+              depressed
               icon
               @click.stop="rightDrawer = !rightDrawer"
             >
