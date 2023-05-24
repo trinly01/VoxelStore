@@ -11,7 +11,7 @@
             <div class="product-price">
               {{ $n(item.price, 'currency') }}
             </div>
-            <button class="add-to-cart-button">
+            <button class="add-to-cart-button" @click="addToCart(item)">
               <svg
                 style="margin-right: 11px;"
                 width="14"
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   props: {
     products: {
@@ -49,6 +50,9 @@ export default {
       }
       return this.products.filter(p => p.category === tab)
     }
+  },
+  methods: {
+    ...mapActions('cart', ['addToCart'])
   }
 }
 </script>
