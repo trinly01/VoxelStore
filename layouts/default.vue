@@ -54,6 +54,9 @@
     >
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
+    <v-snackbar v-model="showSnackbar" :timeout="2000" :color="purple" top>
+      {{ snackbarMessage }}
+    </v-snackbar>
   </v-app>
 </template>
 
@@ -63,6 +66,8 @@ export default {
   name: 'DefaultLayout',
   data () {
     return {
+      showSnackbar: false,
+      snackbarMessage: '',
       clipped: false,
       drawer: false,
       fixed: false,
