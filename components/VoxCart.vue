@@ -13,18 +13,19 @@
     </div>
     <div class="cart-items">
       <!-- {{ cart }} -->
-      <div v-for="item in cart" :key="item.id" class="row">
+      <div v-for="item in cart" :key="'cart'+item.id" class="row">
         <div class="img-container">
           a
         </div>
         <div class="col item-details">
           <div class="item-title">
-            asdasd asd asd as dasd as
+            {{ item.title }}
           </div>
           <div class="row price sub-details mt-auto">
-            $123.31
-            <span class="flex-grow-1" />
-            <a class="price">
+            {{ $n(item.price, 'currency') }} &nbsp; &nbsp; &nbsp;
+            <span v-show="item.qty > 1">Qty: {{ item.qty }}</span>
+            <v-spacer />
+            <a class="price" @click="removeItem(item.id)">
               Remove
             </a>
           </div>
@@ -38,11 +39,36 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   computed: {
     cart () {
-      return this.$store.state.cart.cart
+      const result = []
+      const map = new Map()
+
+      for (const item of this.$store.state.cart.cart) {
+        if (map.has(item.id)) {
+          // If the item is already in the map, increment the quantity
+          const existingItem = map.get(item.id)
+          existingItem.qty += 1
+        } else {
+          // If the item is not in the map, add it with quantity 1
+          const newItem = { ...item, qty: 1 }
+          map.set(item.id, newItem)
+          result.push(newItem)
+        }
+      }
+
+      return result
+
+      // return this.$store.state.cart.cart
     }
+  },
+  mounted () {
+    this.initCart()
+  },
+  methods: {
+    ...mapActions('cart', ['initCart', 'removeItem'])
   }
 }
 </script>
@@ -60,7 +86,7 @@ export default {
 }
 
 .cart-items {
-  padding-top: 64px;
+  padding-top: 48px;
 }
 
 .img-container {

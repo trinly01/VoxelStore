@@ -2,7 +2,7 @@
   <v-col cols="12" class="no-padding">
     <div class="d-flex justify-center align-center">
       <div class="product-grid max-width-1400">
-        <div v-for="item in filteredProducts" :key="item.id" class="product">
+        <div v-for="item in filteredProducts" :key="'product'+item.id" class="product">
           <img :src="item.image" :alt="item.title" class="product-image" loading="lazy">
           <div class="product-details">
             <a class="product-title">
