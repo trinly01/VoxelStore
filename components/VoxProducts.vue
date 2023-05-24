@@ -37,7 +37,7 @@
         <!-- Add more product items as needed -->
       </div>
     </div>
-    <v-snackbar v-model="showSnackbar" :timeout="2000" color="purple" top>
+    <v-snackbar v-model="showSnackbar" :timeout="2000" color="deep-purple accent-4" top>
       <b>{{ snackbarMessage }}</b> added to cart
     </v-snackbar>
   </v-col>

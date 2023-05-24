@@ -4,7 +4,7 @@
       :clipped-left="clipped"
       fixed
       app
-      class="elevation-0"
+      class="elevation-0 white"
     >
       <v-row>
         <v-col cols="12" class="d-flex justify-center align-center">
@@ -25,7 +25,7 @@
               </svg>
               <v-badge
                 v-show="totalItems"
-                color="purple"
+                color="deep-purple accent-4"
                 :content="totalItems"
               />
             </v-btn>

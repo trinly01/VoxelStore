@@ -4,7 +4,7 @@
       <v-tabs
         :model-value="$store.state.filter.tab"
         class="no-gutter max-width-1400"
-        color="deep-purple-accent-4"
+        color="deep-purple accent-4"
         align-tabs="center"
         height="64px"
       >
