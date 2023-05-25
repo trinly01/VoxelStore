@@ -3,15 +3,30 @@
     <div class="d-flex justify-center align-center">
       <v-tabs
         :model-value="$store.state.filter.tab"
-        class="no-gutter max-width-1400"
+        class="no-gutter max-width-1400 hide-on-mobile"
         color="#1A1A1A"
         align-tabs="center"
         height="64px"
       >
-        <v-tab v-for="cat in categories" :key="cat" :value="cat" height="64px" @click="setTab(cat)">
+        <v-tab
+          v-for="cat in categories"
+          :key="cat"
+          :value="cat"
+          height="64px"
+          @click="setTab(cat)"
+        >
           {{ cat }}
         </v-tab>
       </v-tabs>
+      <v-select
+        :value="$store.state.filter.tab"
+        :items="categories"
+        color="black"
+        outlined
+        class="padding-20 show-on-mobile"
+        style="text-transform: capitalize;"
+        @change="setTab"
+      />
     </div>
   </v-col>
 </template>
@@ -30,6 +45,11 @@ export default {
     const categories = response.data
     this.categories = ['all', ...categories]
   },
+  mounted () {
+    setTimeout(() => {
+      document.querySelector('div.v-slide-group__prev.v-slide-group__prev--disabled').remove()
+    }, 500)
+  },
   methods: {
     ...mapMutations('filter', ['setTab'])
   }
@@ -46,7 +66,7 @@ export default {
   text-transform: uppercase;
 }
 
-.v-tab {
+.v-tab, .v-select-list {
   text-transform: capitalize !important;
 }
 </style>
