@@ -107,6 +107,11 @@ export default {
   .mobile-padding {
     padding: 0 20px 0 20px;
   }
+
+  /* .padding-20 {
+    padding: 20px 20px 0px 20px !important;
+  } */
+
 }
 
 .hide-on-mobile {
@@ -120,7 +125,7 @@ export default {
 @media (max-width: 500px) {
 
   .padding-20 {
-    padding: 20px 20px 20px 20px !important;
+    padding: 20px 20px 0px 20px !important;
   }
 
   .hide-on-mobile {

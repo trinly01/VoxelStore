@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" class="no-padding mobile-padding">
     <div class="d-flex justify-center align-center">
-      <div class="product-grid max-width-1400">
+      <div class="product-grid max-width-1400 padding-20">
         <div v-for="index in 10" v-show="!filteredProducts.length" :key="'skeleton'+index" class="product">
           <v-skeleton-loader
             class="mx-auto"
