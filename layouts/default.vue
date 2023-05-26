@@ -143,11 +143,11 @@ export default {
 }
 
 .hide-on-mobile {
-  display: block;
+  display: block !important;
 }
 
 .show-on-mobile {
-  display: none;
+  display: none !important;
 }
 
 @media (max-width: 500px) {
@@ -157,11 +157,11 @@ export default {
   }
 
   .hide-on-mobile {
-    display: none;
+    display: none !important;
   }
 
   .show-on-mobile {
-    display: block;
+    display: block !important;
   }
 }
 
