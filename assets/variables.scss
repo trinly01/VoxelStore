@@ -7,3 +7,32 @@
   font-family: 'Instrument Sans';
   src: url('~assets/VoxelStoreAssets/Instrument_Sans/InstrumentSans-VariableFont_wdth\,wght.ttf') format('truetype');
 }
+
+$max-width: 1400px;
+
+$primary-color: #1A1A1A;
+$secondary-color: rgba(26, 26, 26, 0.1);
+$accent-color: #F4F4F4;
+
+$total-items: 0;
+$gradient-color-1: #462DDF;
+$gradient-color-2: #1A1A1A;
+$border-color: rgba(26, 26, 26, 0.1);
+$border-radius: 8px;
+$font-family: 'Instrument Sans';
+$font-weight-bold: 600;
+$font-weight-medium: 500;
+$font-size-large: 22px;
+$font-size-medium: 16px;
+$font-size-small: 14px;
+$line-height-large: 27px;
+$line-height-medium: 20px;
+$line-height-small: 16px;
+$color-dark: #1A1A1A;
+$color-light: rgba(26, 26, 26, 0.5);
+$padding-small: 16px;
+$padding-medium: 24px;
+$padding-large: 32px;
+$gap-small: 10px;
+$gap-medium: 24px;
+$gap-large: 48px;

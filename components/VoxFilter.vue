@@ -57,7 +57,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.center-tabs {
+
+@mixin center-flexbox {
   justify-content: center;
   align-items: center;
 }
@@ -66,7 +67,69 @@ export default {
   text-transform: uppercase;
 }
 
-.v-tab, .v-select-list {
+.v-tab,
+.v-select-list {
   text-transform: capitalize !important;
 }
+
+.center-tabs {
+  @include center-flexbox;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.hide-on-mobile {
+  display: none;
+
+  @media (min-width: 600px) {
+    display: block;
+  }
+}
+
+.show-on-mobile {
+  display: block;
+
+  @media (min-width: 600px) {
+    display: none;
+  }
+}
+
+.center-tabs {
+  @include center-flexbox;
+}
+
+.v-tabs-container {
+  height: 64px;
+}
+
+.v-tab,
+.v-select-list {
+  height: 64px;
+}
+
+.my-v-tab {
+  @extend .v-tab;
+  @include center-flexbox;
+}
+
+.my-v-select-list {
+  @extend .v-select-list;
+  @include center-flexbox;
+}
+
+.my-v-tab,
+.my-v-select-list {
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+.my-v-select-list {
+  color: $secondary-color;
+}
+
 </style>

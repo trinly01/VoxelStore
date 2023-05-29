@@ -89,53 +89,121 @@ export default {
 
 <style scoped lang="scss">
 
+.cart-component {
+  padding: $padding-large $padding-large $padding-medium;
+
+  .cart-header {
+    border-bottom: 1px solid $border-color;
+    padding: 0 $padding-medium $padding-small;
+    gap: $gap-medium;
+  }
+
+  .cart-items {
+    padding-top: $gap-large;
+  }
+
+  .img-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: $padding-small;
+    gap: $gap-small;
+    width: 102px;
+    height: 102px;
+    background: #FFFFFF;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
+
+  .item-details {
+    min-height: 72px;
+  }
+
+  .sub-details {
+    padding: $padding-medium $padding-small;
+  }
+
+  .gap-12 {
+    gap: 12px;
+  }
+
+  .title {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-large;
+    line-height: $line-height-large;
+  }
+
+  .item-title {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-medium;
+    line-height: $line-height-medium;
+  }
+
+  .price {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-medium;
+    color: $color-light;
+  }
+}
+
 .checkout {
   margin-top: 34px;
   width: 100%;
   height: 59px;
-  background: linear-gradient(0deg, #462DDF, #462DDF), #1A1A1A;
-  border-radius: 8px;
-  font-family: 'Instrument Sans';
+  background: linear-gradient(0deg, $gradient-color-1, $gradient-color-1), $gradient-color-2;
+  border-radius: $border-radius;
+  font-family: $font-family;
   font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 20px;
-  leading-trim: both;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-medium;
+  line-height: $line-height-medium;
   text-edge: cap;
   color: #FFFFFF;
 }
 
 .total {
-  padding-top: 24px;
-  font-family: 'Instrument Sans';
+  padding-top: $padding-medium;
+  font-family: $font-family;
   font-style: normal;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 27px;
-
-  color: #1A1A1A;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-large;
+  line-height: $line-height-large;
+  color: $color-dark;
 }
 
 .product-image {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px;
-
+  padding: 0;
   width: 100%;
   height: 70px;
-  object-fit: contain; /* Adjust the value as per your requirement */
+  object-fit: contain;
 }
 
 .item {
   padding-bottom: 14px;
 }
+
+@mixin n($value, $format) {
+  $formattedValue: $value + ' currency format'; // Replace with your currency formatting logic
+  @if $format == 'currency' {
+    content: #{$formattedValue};
+  }
+}
+
 .cart-component {
   padding: 32px 32px 24px;
 }
 
 .cart-header {
-
   border-bottom: 1px solid rgba(26, 26, 26, 0.1);
   padding: 0px 0px 24px;
   gap: 24px;
@@ -152,10 +220,8 @@ export default {
   align-items: center;
   padding: 16px;
   gap: 10px;
-
   width: 102px;
   height: 102px;
-
   background: #FFFFFF;
   border: 1px solid rgba(26, 26, 26, 0.1);
   border-radius: 8px;
@@ -198,4 +264,5 @@ export default {
   // line-height: 20px;
   color: rgba(26, 26, 26, 0.5);
 }
+
 </style>

@@ -103,42 +103,41 @@ export default {
 }
 </script>
 
-<style >
+<style lang="scss">
 
-.max-width-1400 {
-  max-width: 1400px;
+$max-width: 1400px;
+
+@mixin mobile-padding {
+  padding: 0 20px;
 }
 
-@media (max-width: 1024px) {
-  /* CSS styles to apply when viewport width is 764 pixels or less */
-  /* Add your styles here */
+@mixin padding($top, $right, $bottom, $left) {
+  padding: $top $right $bottom $left !important;
+}
 
+$mobile-breakpoint: 1024px;
+$small-breakpoint: 500px;
+
+.max-width-1400 {
+  max-width: $max-width;
+}
+
+@media (max-width: $mobile-breakpoint) {
   .mobile-padding {
-    padding: 0 20px 0 20px;
+    @include mobile-padding;
   }
-
-  /* .padding-20 {
-    padding: 20px 20px 0px 20px !important;
-  } */
-
 }
 
 .footer {
   box-sizing: border-box;
-
-/* Auto layout */
-
   background: #FFFFFF;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0px;
-
+  padding: 0;
   width: 100%;
   height: 64px;
-
   border-top: 1px solid rgba(26, 26, 26, 0.1);
 }
 
@@ -150,10 +149,9 @@ export default {
   display: none !important;
 }
 
-@media (max-width: 500px) {
-
+@media (max-width: $small-breakpoint) {
   .padding-20 {
-    padding: 20px 20px 0px 20px !important;
+    @include padding(20px, 20px, 0px, 20px);
   }
 
   .hide-on-mobile {
@@ -170,21 +168,18 @@ export default {
 }
 
 .no-padding {
-  padding: 0 0 0 0;
-  margin: 0 0 0 0;
+  padding: 0;
+  margin: 0;
 }
 
 .sub-text {
   width: 268px;
   height: 20px;
-
   font-family: 'Instrument Sans';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  /* identical to box height */
-
   color: rgba(26, 26, 26, 0.5);
 }
 
@@ -192,7 +187,8 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
 </style>

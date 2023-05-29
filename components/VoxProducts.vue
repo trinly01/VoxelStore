@@ -86,6 +86,21 @@ $product-width: 341px;
 $product-height: 503px;
 $product-gap: 12px;
 
+$padding: 20px;
+
+@mixin button-styles {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  margin-top: auto;
+  background: $accent-color;
+  border-radius: 12px;
+}
+
 .product-grid {
   display: flex;
   flex-wrap: wrap;
@@ -94,21 +109,23 @@ $product-gap: 12px;
   padding: 24px 0px 42px;
   gap: $product-gap;
 
+  max-width: $max-width;
+  padding: $padding;
+
   .product {
     box-sizing: border-box;
 
     /* Auto layout */
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 24px;
     gap: 32px;
 
-    width: 341px;
-    height: 503px;
+    width: $product-width;
+    height: $product-height;
 
-    border: 1px solid rgba(26, 26, 26, 0.1);
+    border: 1px solid $secondary-color;
     border-radius: 12px;
 
     .product-image {
@@ -120,7 +137,7 @@ $product-gap: 12px;
       width: 100%;
       height: 280px;
       min-height: 280px;
-      object-fit: contain; /* Adjust the value as per your requirement */
+      object-fit: contain;
     }
 
     .product-details {
@@ -141,7 +158,7 @@ $product-gap: 12px;
       font-weight: 600;
       font-size: 16px;
       line-height: 20px;
-      color: #1A1A1A;
+      color: $primary-color;
       margin-bottom: 6px;
     }
 
@@ -155,17 +172,9 @@ $product-gap: 12px;
     }
 
     .add-to-cart-button {
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 56px;
-      margin-top: auto;
-      background: #F4F4F4;
-      border-radius: 12px;
+      @include button-styles;
     }
   }
 }
+
 </style>
