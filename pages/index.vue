@@ -30,7 +30,7 @@ export default {
 
     // Check if products data exists
     if (this.products.length > 0) {
-      const randomIndex = Math.floor(Math.random() * this.products.length)
+      const randomIndex = Math.floor(Math.random() * this.products.slice(0, 3).length)
       const firstProduct = this.products[randomIndex]
       title = firstProduct.title
       description = firstProduct.description
