@@ -99,8 +99,6 @@ export default {
 
 <style lang="scss">
 
-$max-width: 1400px;
-
 @mixin mobile-padding {
   padding: 0 20px;
 }

@@ -101,6 +101,13 @@ $padding: 20px;
   border-radius: 12px;
 }
 
+@media screen and (min-width: $max-width) {
+  .product-grid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
 .product-grid {
   display: flex;
   flex-wrap: wrap;
