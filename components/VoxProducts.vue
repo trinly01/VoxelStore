@@ -101,19 +101,12 @@ $padding: 20px;
   border-radius: 12px;
 }
 
-@media screen and (min-width: $max-width) {
-  .product-grid {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-
 .product-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 24px 0px 42px;
+  padding: 24px 0px 42px !important;
   gap: $product-gap;
 
   max-width: $max-width;
