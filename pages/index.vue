@@ -1,8 +1,8 @@
 <template>
-  <v-row justify="center" align="center">
-    <vox-hero />
-    <vox-filter />
-    <vox-products :products="products" />
+  <v-row justify="center" align="center" role="main">
+    <vox-hero role="banner" />
+    <vox-filter role="search" />
+    <vox-products :products="products" role="region" aria-label="Products" />
   </v-row>
 </template>
 

@@ -1,12 +1,12 @@
 <template>
   <div class="cart-component">
     <div class="cart-header row justify-center align-center">
-      <div class="title">
+      <h1 class="title">
         Your Cart ({{ totalItems }})
-      </div>
+      </h1>
       <span class="flex-grow-1" />
       <div class="button-container">
-        <v-btn color="black" icon class="depressed" @click="$emit('close')">
+        <v-btn color="black" icon class="depressed" aria-label="Close cart" @click="$emit('close')">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </div>
@@ -15,7 +15,7 @@
       <!-- {{ cart }} -->
       <div v-for="item in cart" :key="'cart'+item.id" class="row item">
         <div class="img-container">
-          <img :src="item.image" :alt="item.title" class="product-image" loading="lazy">
+          <img :src="item.image" :alt="item.title + ' product image'" class="product-image" loading="lazy">
         </div>
         <div class="col item-details">
           <div class="item-title ellipsis">
@@ -33,7 +33,7 @@
       </div>
     </div>
     <div v-show="cart.length" class="cart-checkout">
-      <div class="row mt-auto total">
+      <div class="row mt-auto total" aria-live="polite">
         Total
         <v-spacer />
         {{ $n(cartTotal, 'currency') }}

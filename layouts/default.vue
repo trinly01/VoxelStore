@@ -8,14 +8,18 @@
     >
       <v-row>
         <v-col cols="12" class="d-flex justify-center align-center">
-          <div class="row justify-center align-center max-width-1400 mobile-padding">
+          <header class="row justify-center align-center max-width-1400 mobile-padding">
             <v-toolbar-title>
-              <vox-logo />
+              <nuxt-link to="/" role="link" aria-label="Home">
+                <vox-logo alt="Logo for Voxel Store" />
+              </nuxt-link>
             </v-toolbar-title>
             <v-spacer />
             <v-btn
               depressed
               icon
+              role="button"
+              aria-label="Open Cart"
               @click.stop="rightDrawer = !rightDrawer"
             >
               <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,9 +29,10 @@
                 v-show="totalItems"
                 color="deep-purple accent-4"
                 :content="totalItems"
+                :aria-label="`Number of items in the cart: ${ totalItems }`"
               />
             </v-btn>
-          </div>
+          </header>
         </v-col>
       </v-row>
     </v-app-bar>

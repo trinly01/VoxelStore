@@ -7,10 +7,11 @@
             class="mx-auto"
             width="280"
             type="card"
+            aria-label="Loading product details"
           />
         </div>
         <div v-for="item in filteredProducts" :key="'product'+item.id" class="product">
-          <img :src="item.image" :alt="item.title" class="product-image" loading="lazy">
+          <img :src="item.image" :alt="'Product image: ' + item.title" class="product-image" loading="lazy">
           <div class="product-details">
             <a class="product-title ellipsis">
               {{ item.title }}
