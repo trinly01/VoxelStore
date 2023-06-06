@@ -1,5 +1,7 @@
 # VoxelStore
 
+Demo: [https://voxel-store-trin.vercel.app/](https://voxel-store-trin.vercel.app/)
+
 ## Build Setup
 
 ```bash
