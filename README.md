@@ -2,6 +2,8 @@
 
 Demo: [https://voxel-store-trin.vercel.app/](https://voxel-store-trin.vercel.app/)
 
+Figma [Figma File](https://www.figma.com/file/Nt1S90lVPS9zOy95BR3Ifc/Voxel-Store-UI?type=design&node-id=0-1&mode=design&t=8vtAZiZz72PWMuhA-0)
+
 ## Build Setup
 
 ```bash
